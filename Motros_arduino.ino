@@ -124,17 +124,17 @@ void controlMotors() {
     stopAllMotors();
   } else {
     // Motor 1
-    analogWrite(rpm1, rpmValue1_f);
+    analogWrite(rpm1, abs(rpmValue1_f));   
     digitalWrite(fwd1, dirValue1 == 0 ? HIGH : LOW);
     digitalWrite(rev1, dirValue1 == 0 ? LOW : HIGH);
 
     // Motor 2
-    analogWrite(rpm2, rpmValue2_f);
+    analogWrite(rpm2, abs(rpmValue2_f));
     digitalWrite(fwd2, dirValue2 == 0 ? HIGH : LOW);
     digitalWrite(rev2, dirValue2 == 0 ? LOW : HIGH);
 
     // Motor 3
-    analogWrite(rpm3, rpmValue3_f);
+    analogWrite(rpm3, abs(rpmValue3_f));  // abs for handling rpm values and directions separately
     digitalWrite(fwd3, dirValue3 == 0 ? HIGH : LOW);
     digitalWrite(rev3, dirValue3 == 0 ? LOW : HIGH);
   }
